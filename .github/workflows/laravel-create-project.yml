@@ -2,8 +2,8 @@ name: laravel-create-project
 
 on:
   pull_request:
-  schedule:
-    - cron:  '0 0 * * *'
+#   schedule:
+#     - cron:  '0 0 * * *'
 
 jobs:
   docker-build:
@@ -23,10 +23,10 @@ jobs:
           mkdir backend
           docker-compose up -d
 
-      - name: OS Version
-        run: |
-          docker-compose exec -T app cat /etc/os-release
-          docker-compose exec -T app cat /etc/debian_version
+#       - name: OS Version
+#         run: |
+#           docker-compose exec -T app cat /etc/os-release
+#           docker-compose exec -T app cat /etc/debian_version
 
       - name: PHP Version
         run: docker-compose exec -T app php --version
